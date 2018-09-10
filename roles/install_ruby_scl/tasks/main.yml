@@ -6,12 +6,12 @@
   yum:
     name: "{{ item }}"
     state: present
-  loop: [rh-ruby25-ruby-devel, rh-ruby25-ruby, rh-ruby25, rh-ruby25-runtime]
+  loop: ['{{ ruby_version }}-ruby-devel', '{{ ruby_version }}']
 
 - name: Place file to enable Ruby in path
-  copy: 
-    src: enable-rh-ruby25.sh
-    dest: /etc/profile.d
+  template: 
+    src: enable-rh-ruby.j2 
+    dest: /etc/profile.d/enable-{{ ruby_version }}.sh
     owner: "root"
     group: "root"
     mode: 0644
@@ -21,7 +21,10 @@
 #    src: "{{ item }}"
 #    dest: /usr/bin
 #  loop: [/opt/rh/rh-ruby25/root/usr/bin/ruby, /opt/rh/rh-ruby25/root/usr/bin/gem ]
-
+- name: Place gemrc for no docs
+  copy:
+    src: gemrc
+    dest: ~/.gemrc
 
 - name: Install/Update Base Ruby Gems
   shell: >
