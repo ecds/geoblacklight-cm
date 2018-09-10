@@ -1,0 +1,31 @@
+---
+- debug:
+    msg: "{{ ansible_env }}"
+
+- name: Install Ruby from SCL
+  yum:
+    name: "{{ item }}"
+    state: present
+  loop: [rh-ruby25-ruby-devel, rh-ruby25-ruby, rh-ruby25, rh-ruby25-runtime]
+
+- name: Place file to enable Ruby in path
+  copy: 
+    src: enable-rh-ruby25.sh
+    dest: /etc/profile.d
+    owner: "root"
+    group: "root"
+    mode: 0644
+
+#- name: Link ruby and gem commands
+#  file:
+#    src: "{{ item }}"
+#    dest: /usr/bin
+#  loop: [/opt/rh/rh-ruby25/root/usr/bin/ruby, /opt/rh/rh-ruby25/root/usr/bin/gem ]
+
+
+- name: Install/Update Base Ruby Gems
+  shell: >
+   gem install rails;
+#  source /etc/profile.d/enable-rh-ruby25.sh;
+#   gem install rails;
+#    gem update --system

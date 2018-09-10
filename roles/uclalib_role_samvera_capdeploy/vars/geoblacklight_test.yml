@@ -1,0 +1,35 @@
+---
+
+# project_name: exampleproj
+# env_name: test
+
+rails_host_fqdn: "geoblacklight.ecds.me"
+
+rails_db_adapter: "mysql2"
+rails_db_pool: "5"
+rails_db_host: "dev-geoblacklight.cuublqeubqa0.us-east-1.rds.amazonaws.com"
+rails_db_name: "geodb"
+rails_db_user: "geodbuser"
+rails_db_pass: "Ee4Bszb2NX"
+
+project_default_admin_password: "password"
+
+contact_email_addr: "test@example.com"
+
+fedora_repo_url: "http://fedora.example.com/fcrepo/rest"
+fedora_repo_user: "adminuser"
+fedora_repo_password: "password"
+
+solr_index_url: "http://52.91.245.168:9080/solr/geoblacklight1"
+
+redis_host: "redis.example.com"
+redis_port: "6379"
+
+sidekiq_num_threads: "5"
+
+git_repo_url: "https://github.com/ecds/geoblacklight-2nd"
+
+git_repo_branch: "use-ansible-scripts"
+
+ssh_pub_keys:
+  - https://github.com/SolomonHD.keys
