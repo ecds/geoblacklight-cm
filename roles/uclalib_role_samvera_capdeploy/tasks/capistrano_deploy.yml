@@ -17,12 +17,21 @@
     name: httpd
     state: restarted
 
-- name: Create the rails app default admin set
+- name: Initial geoblacklight install 
   become_user: "{{ capistrano_user }}"
   shell: >
-    RAILS_ENV=production bundle exec rake hyrax:default_admin_set:create
+    RAILS_ENV=production bundle exec rake bundle install 
+    RAILS_ENV=production bundle exec rake generate 'blacklight:install', '--devise'
+    RAILS_ENV=production bundle exec rake generate 'geoblacklight:install', '-f'
   args:
     chdir: "{{ capistrano_base }}/{{ project_name }}/current"
+
+#- name: Create the rails app default admin set
+#  become_user: "{{ capistrano_user }}"
+#  shell: >
+#    RAILS_ENV=production bundle exec rake hyrax:default_admin_set:create
+#  args:
+#    chdir: "{{ capistrano_base }}/{{ project_name }}/current"
 
 - name: Clean-up ansible user project deploy directory
   file:
