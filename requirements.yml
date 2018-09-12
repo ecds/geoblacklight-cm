@@ -9,7 +9,8 @@
 #- src: https://github.com/UCLALibrary/uclalib_role_yarn
 
 # Testing these roles to replace local roles
-- src: https://github.com/curationexperts/dce_role_provision_ec2
+#- src: https://github.com/curationexperts/dce_role_provision_ec2
 #- src: https://github.com/curationexperts/dce_role_selinux_reboot
-- src: https://github.com/curationexperts/dce_role_project_env
+#- src: https://github.com/curationexperts/dce_role_project_env
 #- src: https://github.com/curationexperts/dce_role_wait_for_gatherfacts
+- src: https://github.com/curationexperts/dce_role_end_play
