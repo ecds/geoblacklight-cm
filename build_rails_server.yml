@@ -4,7 +4,8 @@
     project_name: geoblacklight
     env_name: test
   roles: 
-    - { role: dce_role_provision_ec2 }
+    - { role: dce_role_provision_ec2, ec2_exact_count: 0 }
+    - { role: end_play }
 
 - hosts: ec2_group
   user: ec2-user

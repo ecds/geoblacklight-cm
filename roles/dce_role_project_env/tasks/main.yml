@@ -1,15 +1,12 @@
 ---
 # tasks file for dce_role_project_env
-- debug:
-    var:  project_vars_path 
-
 - name: Determine if the project-specific vars file exists
   local_action:
     module: stat
-    path: "{{ project_vars_path }}" 
+    path: "{{ relative_role_path }}/vars/{{ project_name }}_{{ env_name }}.yml" 
   register: project_vars_file
 
 - name: Set-up project-specific environment variables
-  include_vars: "{{ project_vars_path }}"
+  include_vars: "{{ relative_role_path }}/vars/{{ project_name }}_{{ env_name }}.yml"
   when: project_vars_file.stat.exists
-#  no_log: True
+  no_log: True

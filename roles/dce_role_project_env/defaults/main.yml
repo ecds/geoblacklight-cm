@@ -1,5 +1,0 @@
----
-# defaults file for dce_role_project_env
-
-project_vars_path: "{{ relative_role_path }}/vars/{{ project_name }}_{{ env_name }}.yml"
-#"{{ role_path }}/vars/{{ project_name }}_{{ env_name }}.yml"

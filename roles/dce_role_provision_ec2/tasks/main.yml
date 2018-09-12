@@ -1,13 +1,12 @@
 ---
 # tasks file for dce_role_provision_ec2
-#- set_fact:
-#    relative_role_path: "{{ role_path }}"
+- name: Set relative path for calling role
+  set_fact:
+    relative_role_path: "{{ role_path }}"
 
 - name: Import local project enviroment vars
   include_role: 
     name: dce_role_project_env
-  vars:
-    project_vars_path: "{{ relative_role_path }}/vars/{{ project_name }}_{{ env_name }}.yml" 
 
 - name: Provision EC2
   ec2:
@@ -42,4 +41,3 @@
     groups: ec2_group
   loop: "{{ ec2_ip }}"
 
-- meta: end_play
