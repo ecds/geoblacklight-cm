@@ -1,8 +1,10 @@
 ---
 - hosts: localhost
-  
+  vars:
+    project_name: geoblacklight
+    env_name: test
   roles: 
-    - { role: provision_ec2 }
+    - { role: dce_role_provision_ec2 }
 
 - hosts: ec2_group
   user: ec2-user
@@ -20,8 +22,8 @@
     PKG_CONFIG_PATH: /opt/rh/{{ ruby_version }}/root/usr/local/lib64/pkgconfig:/opt/rh/{{ ruby_version }}/root/usr/lib64/pkgconfig
     XDG_DATA_DIRS: /opt/rh/{{ ruby_version }}/root/usr/local/share:/opt/rh/{{ ruby_version }}/root/usr/share
   roles: 
-    - { role: wait_for_connection }
-    - { role: disable_selinux }
+    - { role: dce_role_wait_for_gatherfacts }
+    - { role: dce_role_selinux_reboot }
     - { role: uclalib_role_apache }
     - { role: uclalib_role_rhel7repos }
     - { role: uclalib_role_epel }
