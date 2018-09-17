@@ -5,23 +5,25 @@
     env_name: test
   roles: 
     - { role: dce_role_provision_ec2, ec2_exact_count: 1 }
-    - { role: dce_role_end_play }
+#    - { role: dce_role_end_play }
 
 - hosts: ec2_group
   user: ec2-user
   gather_facts: no
   become: yes
   vars:
-    ruby_version: rh-ruby24
+#    ruby_version: rh-ruby24
     project_name: geoblacklight
     env_name: test
+  vars_files: 
+    - roles/emorylib_role_install_ruby_scl/defaults/main.yml
 
   environment:
-    PATH: /opt/rh/{{ ruby_version }}/root/usr/local/bin:/opt/rh/{{ ruby_version }}/root/usr/bin:{{ ansible_env.PATH }}
-    LD_LIBRARY_PATH: /opt/rh/{{ ruby_version }}/root/usr/local/lib64:/opt/rh/{{ ruby_version }}/root/usr/lib64
-    MANPATH: /opt/rh/{{ ruby_version }}/root/usr/local/share/man:/opt/rh/{{ ruby_version }}/root/usr/share/man
-    PKG_CONFIG_PATH: /opt/rh/{{ ruby_version }}/root/usr/local/lib64/pkgconfig:/opt/rh/{{ ruby_version }}/root/usr/lib64/pkgconfig
-    XDG_DATA_DIRS: /opt/rh/{{ ruby_version }}/root/usr/local/share:/opt/rh/{{ ruby_version }}/root/usr/share
+    PATH: "{{ ruby_path }}" 
+    LD_LIBRARY_PATH: "{{ ruby_ld_path }}"
+    MANPATH: "{{ ruby_manpath }}"
+    PKG_CONFIG_PATH: "{{ ruby_pkg_config_path }}"
+    XDG_DATA_DIRS: "{{ ruby_xdg_data_dirs }}"
   roles: 
     - { role: dce_role_wait_for_gatherfacts }
     - { role: dce_role_selinux_reboot }
@@ -29,7 +31,9 @@
     - { role: uclalib_role_rhel7repos }
     - { role: uclalib_role_epel }
     - { role: uclalib_role_samvera_basepackages }
-    - { role: install_ruby_scl }
-    - { role: uclalib_role_passenger }
-    - { role: uclalib_role_yarn }
-    - { role: uclalib_role_samvera_capdeploy } 
+    - { role: uclalib_role_pip }
+    - { role: emorylib_role_local_mysqldb }
+    - { role: emorylib_role_install_ruby_scl }
+#    - { role: uclalib_role_passenger }
+#    - { role: uclalib_role_yarn }
+#    - { role: uclalib_role_samvera_capdeploy } 

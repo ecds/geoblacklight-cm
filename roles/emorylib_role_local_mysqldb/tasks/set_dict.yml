@@ -1,0 +1,7 @@
+- name: Create dict of needed mysql databases
+  set_fact:
+    db_dict:
+      rails:
+        name: "{{ rails_db_name }}"
+        user: "{{ rails_db_user }}"
+        pass: "{{ rails_db_pass }}"

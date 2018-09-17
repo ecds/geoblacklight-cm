@@ -3,10 +3,10 @@
 - name: Determine if the project-specific vars file exists
   local_action:
     module: stat
-    path: "{{ relative_role_path }}/vars/{{ project_name }}_{{ env_name }}.yml" 
+    path: "{{ project_env_path }}"
   register: project_vars_file
 
 - name: Set-up project-specific environment variables
-  include_vars: "{{ relative_role_path }}/vars/{{ project_name }}_{{ env_name }}.yml"
+  include_vars: "{{ project_env_path }}" 
   when: project_vars_file.stat.exists
   no_log: True

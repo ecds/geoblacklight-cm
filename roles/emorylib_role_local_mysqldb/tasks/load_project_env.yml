@@ -1,0 +1,5 @@
+- name: Load project env from other roles
+  include_role:
+    name: dce_role_project_env
+  vars:
+    project_env_path: "{{ playbook_dir }}/roles/uclalib_role_samvera_capdeploy/vars/{{ project_name }}_{{ env_name }}.yml"

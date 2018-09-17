@@ -1,0 +1,17 @@
+- name: Create MySQL databases
+  mysql_db:
+    name: "{{ item.value.name }}"
+    state: "{{ db_state }}"
+  loop: "{{ db_dict|dict2items }}"
+#  with_dict: "{{ db_dict }}"
+  #loop: "{{ query('dict', db_dict) }}"
+ # with_subelements: "{{ db_dict }}"
+
+
+- name: Create MySQL users and grant priv
+  mysql_user:
+    name: "{{ item.value.user }}"
+    password: "{{ item.value.pass }}"
+    priv: '{{ item.value.name }}.*:ALL'
+    state: "{{ db_user_state }}"
+  loop: "{{ db_dict|dict2items }}"
