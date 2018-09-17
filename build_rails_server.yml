@@ -5,7 +5,9 @@
     env_name: test
   roles: 
     - { role: dce_role_provision_ec2, ec2_exact_count: 1 }
-#    - { role: dce_role_end_play }
+    - { role: dce_role_provision_rds }
+    - { role: dce_role_rds_mysql }
+    - { role: dce_role_end_play }
 
 - hosts: ec2_group
   user: ec2-user
@@ -26,6 +28,7 @@
     XDG_DATA_DIRS: "{{ ruby_xdg_data_dirs }}"
   roles: 
     - { role: dce_role_wait_for_gatherfacts }
+    - { role: dce_role_end_play } ## ENDing play
     - { role: dce_role_selinux_reboot }
     - { role: uclalib_role_apache }
     - { role: uclalib_role_rhel7repos }

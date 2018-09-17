@@ -7,7 +7,7 @@
 #- src: https://github.com/UCLALibrary/uclalib_role_apache
 #- src: https://github.com/UCLALibrary/uclalib_role_passenger
 #- src: https://github.com/UCLALibrary/uclalib_role_yarn
-
+- src: https://github.com/UCLALibrary/uclalib_role_fedora4
 # Testing these roles to replace local roles
 #- src: https://github.com/curationexperts/dce_role_provision_ec2
 #- src: https://github.com/curationexperts/dce_role_selinux_reboot
@@ -16,4 +16,5 @@
 #- src: https://github.com/curationexperts/dce_role_end_play
 #- src: https://github.com/emory-libraries/emorylib_role_local_mysqldb
 #- src: https://github.com/UCLALibrary/uclalib_role_pip
-- src: https://github.com/curationexperts/dce_role_provision_rds
+#- src: https://github.com/curationexperts/dce_role_provision_rds
+- src: https://github.com/curationexperts/dce_role_rds_mysql

@@ -1,0 +1,9 @@
+- name:
+  rds_instance_facts:
+#    name: "{{ rds_instance_name }}"
+  register: rds_mysql_facts
+
+- name: Filter RDS facts
+  rds_instance_facts:
+    filters:
+      db-instance-id: testsoldb1

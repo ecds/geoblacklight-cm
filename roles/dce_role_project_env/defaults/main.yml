@@ -1,1 +1,1 @@
-project_env_path: "{{ relative_role_path }}/vars/{{ project_name }}_{{ env_name }}.yml"
+project_env_path: ["{{ relative_role_path }}/vars/{{ project_name }}_{{ env_name }}.yml"]

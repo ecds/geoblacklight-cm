@@ -1,0 +1,4 @@
+- name: Install MySQL-Python via Pip
+  pip:
+    name: "{{ item }}"
+  loop: [boto, boto3, botocore, MySQL-python]
