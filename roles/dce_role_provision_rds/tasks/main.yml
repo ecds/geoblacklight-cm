@@ -22,3 +22,6 @@
     vpc_security_groups: "{{ rds_security_groups }}"
     publicly_accessible: "{{ rds_publicly_accessible }}"
   register: rds
+
+- set_fact:
+    rds_endpoint: "{{ rds.instance['endpoint'] }}"
