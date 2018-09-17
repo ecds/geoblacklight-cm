@@ -21,6 +21,8 @@
     subnet: "{{ rds_subnet }}"
     vpc_security_groups: "{{ rds_security_groups }}"
     publicly_accessible: "{{ rds_publicly_accessible }}"
+    wait: yes
+    wait_timeout: 600
   register: rds
 
 - set_fact:
