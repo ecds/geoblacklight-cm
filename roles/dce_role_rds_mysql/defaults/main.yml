@@ -1,2 +1,4 @@
 ---
 # defaults file for dce_role_rds_mysql
+db_state: present
+db_user_state: present
