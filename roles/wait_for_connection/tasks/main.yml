@@ -1,8 +1,0 @@
----
-- name: Wait for VM to become available
-  wait_for_connection:
-    delay: 12
-    sleep: 3
-
-- name: gather facts
-  setup:
