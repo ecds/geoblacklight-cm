@@ -8,6 +8,11 @@
   include_role: 
     name: dce_role_project_env
 
+- name: Set fact to destroy ec2
+  set_fact:
+    ec2_exact_count: "{{ ec2_exact_count_zero }}"
+  tags: [ delete-ec2, delete-all, never ]
+
 - name: Provision EC2
   ec2:
     key_name: "{{ ec2_key_name }}"
@@ -27,8 +32,13 @@
       Name: "{{ ec2_fqdn }}"
     count_tag:
       Name: "{{ ec2_fqdn }}" 
+    user_data: "{{ lookup('template', 'user_data.j2') }}"
     exact_count: "{{ ec2_exact_count }}"
   register: ec2
+
+- name: End play early to avoid fail
+  meta: end_play
+  when: ec2_exact_count == 0
 
 - name: Json Query to assign provisioned EC2 to new ansible group
   set_fact:

@@ -3,7 +3,4 @@
   include_role:
     name: dce_role_project_env
   vars:
-    project_env_path: 
-      - "{{ playbook_dir }}/roles/uclalib_role_samvera_capdeploy/vars/{{ project_name }}_{{ env_name }}.yml"
-      - "{{ playbook_dir }}/roles/uclalib_role_fedora4/vars/{{ project_name }}_{{ env_name }}.yml"
-      - "{{ playbook_dir }}/roles/dce_role_provision_rds/vars/{{ project_name }}_{{ env_name }}.yml"
+    use_absolute_paths: yes

@@ -1,9 +1,5 @@
 ---
 # vars file for emorylib_role_local_mysqldb
-users:
-  alice:
-    name: Alice Appleworth
-    telephone: 123-456-7890
-  bob:
-    name: Bob Bananarama
-    telephone: 987-654-3210
+db_state: present
+db_user_state: present
+

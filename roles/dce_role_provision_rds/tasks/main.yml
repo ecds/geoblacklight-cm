@@ -8,6 +8,11 @@
   include_role:
     name: dce_role_project_env
 
+- name: Set fact to delete RDS instance
+  set_fact:
+    rds_command: delete
+  tags: [ delete-rds, delete-all, never ]
+
 - name: Provision RDS
   rds:
     command: "{{ rds_command }}"
@@ -21,8 +26,6 @@
     subnet: "{{ rds_subnet }}"
     vpc_security_groups: "{{ rds_security_groups }}"
     publicly_accessible: "{{ rds_publicly_accessible }}"
-    wait: yes
-    wait_timeout: 600
   register: rds
 
 - set_fact:

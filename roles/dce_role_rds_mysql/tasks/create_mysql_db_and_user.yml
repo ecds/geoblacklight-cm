@@ -1,6 +1,14 @@
+
+- name: Set fact to destroy db
+  set_fact:
+    db_state: absent
+    db_user_state: absent
+  tags: [ delete-db, delete-all, never ]
+
+
 - name: Create MySQL databases
   mysql_db:
-    login_host: "{{ hostvars['localhost']['rds_endpoint'] }}"
+    login_host: "{{ rds_endpoint }}"
     login_user: "{{ rds_master_username }}"
     login_password: "{{ rds_master_password }}"
     name: "{{ item.value.name }}"
@@ -10,7 +18,7 @@
 
 - name: Create MySQL users and grant priv
   mysql_user:
-    login_host: "{{ hostvars['localhost']['rds_endpoint'] }}"
+    login_host: "{{ rds_endpoint }}"
     login_user: "{{ rds_master_username }}"
     login_password: "{{ rds_master_password }}"
     name: "{{ item.value.user }}"

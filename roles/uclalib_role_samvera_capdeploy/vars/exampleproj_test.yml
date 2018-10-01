@@ -31,5 +31,12 @@ git_repo_url: "https://github.com/Example/exampleproject"
 
 git_repo_branch: "master"
 
+#### VARS ADDED BY DCE ########
+geonames_user: "geonamesuser"
+geonames_pass: "geonames_pass"
+
+
 ssh_pub_keys:
   - https://github.com/example.keys
+
+

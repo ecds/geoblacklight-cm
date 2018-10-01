@@ -1,12 +1,14 @@
+- name: Set fact to destroy DB (Optional)
+  set_fact:
+    db_state: absent
+    db_user_state: absent
+  tags: [ delete-db, delete-all, never ]
+
 - name: Create MySQL databases
   mysql_db:
     name: "{{ item.value.name }}"
     state: "{{ db_state }}"
   loop: "{{ db_dict|dict2items }}"
-#  with_dict: "{{ db_dict }}"
-  #loop: "{{ query('dict', db_dict) }}"
- # with_subelements: "{{ db_dict }}"
-
 
 - name: Create MySQL users and grant priv
   mysql_user:
