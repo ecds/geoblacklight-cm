@@ -3,7 +3,7 @@
   roles: 
     - { role: dce_role_provision_ec2, ec2_exact_count: 1 }
     - { role: dce_role_provision_rds }
-    - { role: dce_role_rds_mysql }
+#    - { role: dce_role_rds_mysql }
 #    - { role: dce_role_end_play }
 
 - hosts: ec2_group

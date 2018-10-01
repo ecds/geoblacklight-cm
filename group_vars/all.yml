@@ -1,2 +1,4 @@
 project_name: geoblacklight
 env_name: test
+
+ansible_become_pass: emory1
