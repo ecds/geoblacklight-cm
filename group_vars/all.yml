@@ -1,4 +1,7 @@
 project_name: geoblacklight
 env_name: test
 
-ansible_become_pass: emory1
+host: geoblacklight2.ecds.me
+
+
+ansible_become_pass: "{{ lookup('env', 'ANSIBLE_BECOME_PASS') }}"

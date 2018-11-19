@@ -11,6 +11,7 @@
   gather_facts: no
   become: yes
   vars:
+    host: "{{ hostvars['localhost']['host'] }}"
   vars_files: 
     - roles/emorylib_role_install_ruby_scl/defaults/main.yml
 
