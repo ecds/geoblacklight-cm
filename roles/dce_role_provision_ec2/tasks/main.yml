@@ -8,6 +8,10 @@
   include_role: 
     name: dce_role_project_env
 
+- name: Include vars from target host
+  include_vars:
+    file: "{{ playbook_dir }}/host_vars/{{ host }}"
+
 - name: Set fact to destroy ec2
   set_fact:
     ec2_exact_count: 0
