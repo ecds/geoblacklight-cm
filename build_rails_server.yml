@@ -6,7 +6,7 @@
     - { role: dce_role_route53_cm }
     - { role: dce_role_provision_rds }
 
-- hosts: ec2_group
+- hosts: "{{ host }}"
   user: ec2-user
   gather_facts: no
   become: yes
@@ -32,8 +32,9 @@
     - { role: uclalib_role_pip }
 #    - { role: emorylib_role_local_mysqldb }
     - { role: dce_role_rds_mysql }
-    - { role: dce_role_end_play }
+#    - { role: dce_role_end_play }
     - { role: emorylib_role_install_ruby_scl }
     - { role: uclalib_role_passenger }
     - { role: uclalib_role_yarn }
-    - { role: uclalib_role_samvera_capdeploy } 
+    - { role: uclalib_role_blacklight_capdeploy }
+#    - { role: uclalib_role_samvera_capdeploy } 

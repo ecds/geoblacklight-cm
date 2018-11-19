@@ -1,5 +1,6 @@
-project_name: geoblacklight
+domain_name: geoblacklight
 env_name: test
+project_name: placeholder
 
 host: geoblacklight2.ecds.me
 

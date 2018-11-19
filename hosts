@@ -1,4 +1,3 @@
 [dev]
 geoblacklight2.ecds.me
-
-ec2_ip ansible_ssh_private_key_file=~/.ssh/library_team.pem
+#ec2_ip ansible_ssh_private_key_file=~/.ssh/library_team.pem
