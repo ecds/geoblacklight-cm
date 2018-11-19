@@ -3,8 +3,6 @@
   roles: 
     - { role: dce_role_provision_ec2, ec2_exact_count: 1 }
     - { role: dce_role_provision_rds }
-#    - { role: dce_role_rds_mysql }
-#    - { role: dce_role_end_play }
 
 - hosts: ec2_group
   user: ec2-user
@@ -23,14 +21,16 @@
   roles: 
     - { role: dce_role_wait_for_gatherfacts }
 #    - { role: dce_role_end_play } ## ENDing play
-#    - { role: dce_role_selinux_reboot }
-#    - { role: uclalib_role_apache }
-#    - { role: uclalib_role_rhel7repos }
-#    - { role: uclalib_role_epel }
-#    - { role: uclalib_role_samvera_basepackages }
-#    - { role: uclalib_role_pip }
+    - { role: dce_role_selinux_reboot }
+    - { role: uclalib_role_apache }
+    - { role: uclalib_role_rhel7repos }
+    - { role: uclalib_role_epel }
+    - { role: uclalib_role_samvera_basepackages }
+    - { role: uclalib_role_pip }
 #    - { role: emorylib_role_local_mysqldb }
-#    - { role: emorylib_role_install_ruby_scl }
-#    - { role: uclalib_role_passenger }
-#    - { role: uclalib_role_yarn }
+    - { role: dce_role_rds_mysql }
+    - { role: dce_role_end_play }
+    - { role: emorylib_role_install_ruby_scl }
+    - { role: uclalib_role_passenger }
+    - { role: uclalib_role_yarn }
     - { role: uclalib_role_samvera_capdeploy } 
