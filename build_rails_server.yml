@@ -2,6 +2,8 @@
 - hosts: localhost
   roles: 
     - { role: dce_role_provision_ec2 }
+    - { role: dce_role_assign_eip }
+    - { role: dce_role_route53_cm }
     - { role: dce_role_provision_rds }
 
 - hosts: ec2_group

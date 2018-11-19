@@ -1,0 +1,16 @@
+# vars file for dce_role_provision_ec2
+# EC2 instance variables
+# project_name
+# env_name
+ec2_key_name: library_team
+ec2_security_groups: [Griendling Site Security Group]
+ec2_instance_type: t2.medium
+ec2_image: ami-6871a115
+
+ec2_vpc_subnet_id: subnet-ba79ee80
+ec2_assign_public_ip: no #Boolean
+
+ec2_fqdn: geoblacklight2.ecds.me
+#ec2_exact_count: 1 #Int
+
+ec2_ssh_private_key_path: ~/.ssh/library_team.pem
