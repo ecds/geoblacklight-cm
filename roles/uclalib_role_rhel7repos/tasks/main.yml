@@ -11,7 +11,7 @@
   set_fact:
     repos: "{{ aws_repos }}"
     repo_path: "{{ aws_repo_path }}"
-  when: aws_check.changed
+#  when: aws_check.changed
 
 - name: Enable RHEL7 repos 
   ini_file:

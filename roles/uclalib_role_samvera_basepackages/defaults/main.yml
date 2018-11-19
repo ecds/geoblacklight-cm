@@ -40,4 +40,3 @@ mysql_packages:
   - mysql-community-client
   - mysql-community-devel
   - mysql-community-libs
-#  - mysql-community-server

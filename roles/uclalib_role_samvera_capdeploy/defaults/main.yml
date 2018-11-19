@@ -18,6 +18,10 @@ capistrano_directories:
 
 systemd_unit_file_dir: /etc/systemd/system
 
+logrotate_files:
+  - "production.log"
+  - "sidekiq.log"
+
 ### Should be defined in the play file or inventory file ###
 ############################################################
 project_name: ""
@@ -29,6 +33,8 @@ env_name: ""
 # This is a template for what
 # should appear in a vars file
 ############################################################
+sidekiq_num_threads: ""
+
 rails_host_fqdn: ""
 
 rails_db_adapter: "mysql2"
@@ -37,15 +43,6 @@ rails_db_host: ""
 rails_db_name: ""
 rails_db_user: ""
 rails_db_pass: ""
-
-### ENV VARS ADDED BY DCE ######
-geonames_user: ""
-geonames_pass: ""
-
-honeybadger_api: ""
-
-csv_file: ""
-################################
 
 project_default_admin_password: ""
 
@@ -60,7 +57,15 @@ solr_index_url: ""
 redis_host: ""
 redis_port: ""
 
-sidekiq_num_threads: ""
+external_iiif_server_url: "empty"
+
+csv_file_path: ""
+import_file_path: ""
+
+### End dotenv variables
+
+# Define if we should use the deflate_module in Apache HTTPD config
+use_deflate_module: "yes"
 
 git_repo_url: ""
 

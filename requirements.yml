@@ -1,22 +1,29 @@
-# External roles for building out the ECDS geoblacklight 
-#- src: https://github.com/UCLALibrary/uclalib_role_samvera_capdeploy #### USE Forked
-#- src: https://github.com/UCLALibrary/uclalib_role_epel
-#- src: https://github.com/curationexperts/uclalib_role_rhel7repos
-#- src: https://github.com/UCLALibrary/uclalib_role_samvera_basepackages
-#- src: https://github.com/UCLALibrary/uclalib_role_nodejs
-#- src: https://github.com/UCLALibrary/uclalib_role_apache
-#- src: https://github.com/UCLALibrary/uclalib_role_passenger
-#- src: https://github.com/UCLALibrary/uclalib_role_yarn
-#- src: https://github.com/UCLALibrary/uclalib_role_fedora4
+# External roles for building out the ECDS geoblacklight instance
+- src: https://github.com/UCLALibrary/uclalib_role_blacklight_capdeploy
+- src: https://github.com/UCLALibrary/uclalib_role_samvera_capdeploy
+- src: https://github.com/UCLALibrary/uclalib_role_epel
+- src: https://github.com/curationexperts/uclalib_role_rhel7repos
+- src: https://github.com/UCLALibrary/uclalib_role_samvera_basepackages
+- src: https://github.com/UCLALibrary/uclalib_role_nodejs
+- src: https://github.com/UCLALibrary/uclalib_role_apache
+- src: https://github.com/UCLALibrary/uclalib_role_passenger
+- src: https://github.com/UCLALibrary/uclalib_role_yarn
+- src: https://github.com/UCLALibrary/uclalib_role_fedora4
 - src: https://github.com/UCLALibrary/uclalib_role_pip
 # Testing these roles to replace local roles
-- src: https://github.com/curationexperts/uclalib_role_samvera_capdeploy
-  version: add-geonames-honeybadger
+#- src: https://github.com/curationexperts/uclalib_role_samvera_capdeploy
+#  version: add-geonames-honeybadger
+  
+###### AWS Management 
 - src: https://github.com/curationexperts/dce_role_provision_ec2
+- src: https://github.com/curationexperts/dce_role_route53_cm
+- src: https://github.com/curationexperts/dce_role_provision_rds
+- src: https://github.com/curationexperts/dce_role_rds_mysql
+- src: https://github.com/curationexperts/dce_role_assign_eip
+
+###### Utility roles
 - src: https://github.com/curationexperts/dce_role_selinux_reboot
 - src: https://github.com/curationexperts/dce_role_project_env
 - src: https://github.com/curationexperts/dce_role_wait_for_gatherfacts
 - src: https://github.com/curationexperts/dce_role_end_play
 - src: https://github.com/emory-libraries/emorylib_role_local_mysqldb
-- src: https://github.com/curationexperts/dce_role_provision_rds
-- src: https://github.com/curationexperts/dce_role_rds_mysql

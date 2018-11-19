@@ -10,7 +10,7 @@
 
 - name: Set fact to destroy ec2
   set_fact:
-    ec2_exact_count: "{{ ec2_exact_count_zero }}"
+    ec2_exact_count: 0
   tags: [ delete-ec2, delete-all, never ]
 
 - name: Provision EC2
@@ -40,14 +40,14 @@
   meta: end_play
   when: ec2_exact_count == 0
 
-- name: Json Query to assign provisioned EC2 to new ansible group
+- name: Assign singular varibles for ec2 instance 
   set_fact:
-    ec2_ip: "{{ ec2|json_query('tagged_instances[].public_ip') }}"
+    ec2_ip: "{{ ec2|json_query('tagged_instances[0].public_ip') }}"
+    ec2_id: "{{ ec2|json_query('tagged_instances[0].id') }}"
 
 - name: Create new ansible group 
   add_host:
-    name: "{{ item }}"
+    name: "{{ ec2_ip }}"
     ansible_ssh_private_key_file: "{{ ec2_ssh_private_key_path }}"
     groups: ec2_group
-  loop: "{{ ec2_ip }}"
 
