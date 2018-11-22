@@ -8,6 +8,10 @@
   include_role:
     name: dce_role_project_env
 
+- name: Include vars for target RDS host
+  include_vars:
+    file: "{{ playbook_dir }}/host_vars/rds_host/{{ rds_host }}"
+
 - name: Set fact to delete RDS instance
   set_fact:
     rds_command: delete
