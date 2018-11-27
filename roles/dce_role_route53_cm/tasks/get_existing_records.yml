@@ -17,6 +17,14 @@
   when: ec2_CNAME is defined
   register: oldCNAME
 
+- debug:
+    var: oldA
+
+- debug:
+    var: oldCNAME
+
+- meta: end_play 
+
 - name:
   block:
     - set_fact:

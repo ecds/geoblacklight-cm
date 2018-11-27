@@ -3,15 +3,16 @@
   roles: 
     - { role: dce_role_provision_ec2 }
     - { role: dce_role_assign_eip }
-#    - { role: dce_role_route53_cm }
+    - { role: dce_role_route53_cm }
     - { role: dce_role_provision_rds }
 
-- hosts: 52.54.83.234 
+- hosts: "{{ host }}" 
   user: ec2-user
   gather_facts: no
   become: yes
   vars:
     host: "{{ hostvars['localhost']['host'] }}"
+    ec2_exact_count: "{{ hostvars['localhost']['ec2_exact_count'] }}"
   vars_files: 
     - roles/emorylib_role_install_ruby_scl/defaults/main.yml
 
@@ -22,7 +23,7 @@
     PKG_CONFIG_PATH: "{{ ruby_pkg_config_path }}"
     XDG_DATA_DIRS: "{{ ruby_xdg_data_dirs }}"
   roles: 
-    - { role: dce_role_end_play, when: ec2_exact_count == 0 } ## ENDing play
+    - { role: dce_role_end_play, when: ec2_exact_count == '0' } # End Play when deleting EC2
     - { role: dce_role_wait_for_gatherfacts }
     - { role: dce_role_selinux_reboot }
     - { role: uclalib_role_apache }
