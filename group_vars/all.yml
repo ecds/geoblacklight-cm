@@ -1,5 +1,5 @@
 env_name: test
 
-host: geoblacklight2.ecds.me
+#host: geoblacklight2.ecds.me
 
 ansible_become_pass: "{{ lookup('env', 'ANSIBLE_BECOME_PASS') }}"

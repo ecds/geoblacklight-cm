@@ -1,0 +1,33 @@
+- hosts: "{{ host }}"
+  user: ec2-user
+  gather_facts: no
+  become: yes
+  vars:
+    host: "{{ hostvars['localhost']['host'] }}"
+    ec2_exact_count: "{{ hostvars['localhost']['ec2_exact_count'] }}"
+  vars_files:
+    - roles/emorylib_role_install_ruby_scl/defaults/main.yml
+
+  environment:
+    PATH: "{{ ruby_path }}"
+    LD_LIBRARY_PATH: "{{ ruby_ld_path }}"
+    MANPATH: "{{ ruby_manpath }}"
+    PKG_CONFIG_PATH: "{{ ruby_pkg_config_path }}"
+    XDG_DATA_DIRS: "{{ ruby_xdg_data_dirs }}"
+  roles:
+    - { role: dce_role_end_play, when: ec2_exact_count == '0' } # End Play when deleting EC2
+    - { role: dce_role_wait_for_gatherfacts }
+    - { role: dce_role_selinux_reboot }
+    - { role: uclalib_role_apache }
+    - { role: uclalib_role_rhel7repos }
+    - { role: uclalib_role_epel }
+    - { role: uclalib_role_samvera_basepackages }
+    - { role: uclalib_role_pip }
+#    - { role: emorylib_role_local_mysqldb }
+    - { role: dce_role_rds_mysql }
+#    - { role: dce_role_end_play }
+    - { role: emorylib_role_install_ruby_scl }
+    - { role: uclalib_role_passenger }
+    - { role: uclalib_role_yarn }
+    - { role: uclalib_role_blacklight_capdeploy }
+#    - { role: uclalib_role_samvera_capdeploy }

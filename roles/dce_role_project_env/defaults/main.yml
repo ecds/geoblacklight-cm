@@ -1,12 +1,9 @@
 project_env_relative_path:
   - "{{ relative_role_path }}/vars/{{ project_name }}_{{ env_name }}.yml"
-  - "{{ relative_role_path }}/vars/{{ domain_name }}_{{ env_name }}.yml"
 
 project_env_absolute_paths:
   - "{{ playbook_dir }}/roles/uclalib_role_samvera_capdeploy/vars/{{ project_name }}_{{ env_name }}.yml"
   - "{{ playbook_dir }}/roles/uclalib_role_fedora4/vars/{{ project_name }}_{{ env_name }}.yml"
-  - "{{ playbook_dir }}/roles/dce_role_provision_rds/vars/{{ domain_name }}_{{ env_name }}.yml"
-  - "{{ playbook_dir }}/roles/dce_role_provision_ec2/vars/{{ domain_name }}_{{ env_name }}.yml"
 
 use_absolute_paths: no
 
