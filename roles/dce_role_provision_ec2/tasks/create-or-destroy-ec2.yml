@@ -25,7 +25,3 @@
     user_data: "{{ lookup('template', 'user_data.j2') }}"
     exact_count: "{{ ec2_exact_count }}"
   register: ec2
-
-- name: End play early to avoid fail
-  meta: end_play
-  when: ec2_exact_count == 0

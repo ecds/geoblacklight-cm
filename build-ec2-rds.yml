@@ -1,6 +1,8 @@
 - hosts: localhost
+#  debugger: always
   roles:
     - { role: dce_role_provision_ec2 }
-    - { role: dce_role_assign_eip }
-    - { role: dce_role_route53_cm }
+    - { role: dce_role_assign_eip, when: ec2_id is defined}
+    - { role: dce_role_route53_cm, when: ec2_id is defined}
     - { role: dce_role_provision_rds }
+    - { role: dce_role_end_play, use_meta: no,  when: ec2_exact_count == 0}

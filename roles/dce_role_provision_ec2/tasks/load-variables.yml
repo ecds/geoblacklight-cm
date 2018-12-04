@@ -2,6 +2,7 @@
   set_fact:
     relative_role_path: "{{ role_path }}"
 
+# Commented out because new structure doesn't need project vars for aws provisioning, using host_vars instead 
 #- name: Import local project enviroment vars
 #  include_role:
 #    name: dce_role_project_env

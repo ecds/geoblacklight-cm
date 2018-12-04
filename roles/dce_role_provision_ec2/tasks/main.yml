@@ -5,3 +5,4 @@
 - include_tasks: create-or-destroy-ec2.yml
 
 - include_tasks: assign-variables-and-new-group.yml
+  when: ec2_exact_count != 0
