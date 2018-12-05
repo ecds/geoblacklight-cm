@@ -17,7 +17,6 @@
     PKG_CONFIG_PATH: "{{ ruby_pkg_config_path }}"
     XDG_DATA_DIRS: "{{ ruby_xdg_data_dirs }}"
   roles:
-    - { role: dce_role_end_play, when: ec2_exact_count == '0' } # End Play when deleting EC2
     - { role: dce_role_wait_for_gatherfacts }
     - { role: dce_role_selinux_reboot }
     - { role: uclalib_role_apache }
