@@ -34,3 +34,4 @@
 
 - set_fact:
     rds_endpoint: "{{ rds.instance['endpoint'] }}"
+    cacheable: yes

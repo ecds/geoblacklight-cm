@@ -48,7 +48,7 @@
 - debug: 
     var: all_CNAMES_match_ec2_fqdn
 
-- meta: end_play 
+#- meta: end_play 
 
 - name:
   block:

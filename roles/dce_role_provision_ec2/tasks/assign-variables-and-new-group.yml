@@ -2,6 +2,8 @@
   set_fact:
     ec2_ip: "{{ ec2|json_query('tagged_instances[0].public_ip') }}"
     ec2_id: "{{ ec2|json_query('tagged_instances[0].id') }}"
+    host: "{{ host }}"
+    cacheable: yes
 
 - name: Create new ansible group
   add_host:

@@ -1,0 +1,7 @@
+---
+# tasks file for emoryecds_role_save_vars
+- name: Output variables
+  template:
+    dest: facts/variable-output.yml
+    src: variable-output.j2
+  delegate_to: localhost

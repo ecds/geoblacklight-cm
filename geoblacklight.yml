@@ -1,14 +1,11 @@
 - hosts: "{{ host }}"
-#geoblacklight2.ecds.me
-#  debugger: always 
   user: ec2-user
   gather_facts: no
   become: yes
-  #vars:
-  #  host: "{{ hostvars['localhost']['host'] }}"
-  #  ec2_exact_count: "{{ hostvars['localhost']['ec2_exact_count'] }}"
   vars_files:
     - roles/emorylib_role_install_ruby_scl/defaults/main.yml
+   # - facts/localhost
+    - facts/variable-output.yml
 
   environment:
     PATH: "{{ ruby_path }}"
