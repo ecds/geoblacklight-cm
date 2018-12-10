@@ -10,6 +10,7 @@
 #- src: https://github.com/UCLALibrary/uclalib_role_yarn
 #- src: https://github.com/UCLALibrary/uclalib_role_fedora4
 #- src: https://github.com/UCLALibrary/uclalib_role_pip
+- src: https://github.com/UCLALibrary/uclalib_role_redis 
 # Testing these roles to replace local roles
 #- src: https://github.com/curationexperts/uclalib_role_samvera_capdeploy
 #  version: add-geonames-honeybadger
@@ -27,4 +28,4 @@
 #- src: https://github.com/curationexperts/dce_role_wait_for_gatherfacts
 #- src: https://github.com/curationexperts/dce_role_end_play
 #- src: https://github.com/emory-libraries/emorylib_role_local_mysqldb
-- src: https://github.com/ecds/emoryecds_role_save_vars
+#- src: https://github.com/ecds/emoryecds_role_save_vars
