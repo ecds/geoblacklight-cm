@@ -1,3 +1,3 @@
 ---
-- import_playbook: build-ec2-rds.yml host=geoblacklight2.ecds.me
+- import_playbook: build-ec2-rds.yml host=geoblacklight2.ecds.me  #ursus.ecds.me
 - import_playbook: geoblacklight.yml #host=geoblacklight2.ecds.me

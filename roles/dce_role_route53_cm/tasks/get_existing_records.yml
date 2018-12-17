@@ -17,39 +17,6 @@
   when: ec2_CNAME is defined
   register: oldCNAME
 
-- debug:
-    var: oldA
-
-- debug:
-    var: oldCNAME
-
-- debug:
-    var: ec2_fqdn
-
-- debug:
-    msg: "A record does NOT need to be changed"
-  when: oldA.set.value == ec2_ip 
-
-- debug:
-    var: oldCNAME
-
-- set_fact:
-    all_CNAMES_match_ec2_fqdn: true # Initalized for logic
-    CNAME_query_values: "{{ oldCNAME.results | map(attribute='set.value') | map('default', 'placeholder') | list }}"
-
-- set_fact:
-    all_CNAMES_match_ec2_fqdn: false
-  when: item != ec2_fqdn
-  loop: "{{ CNAME_query_values }}"
-
-- debug:
-    var: CNAME_query_values
-
-- debug: 
-    var: all_CNAMES_match_ec2_fqdn
-
-#- meta: end_play 
-
 - name:
   block:
     - set_fact:
