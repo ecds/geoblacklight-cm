@@ -1,0 +1,5 @@
+---
+
+repo_url: "http://yum.library.ucla.edu/rhel{{ ansible_distribution_major_version }}"
+
+repo_file: "/etc/yum.repos.d/uclalib.repo"

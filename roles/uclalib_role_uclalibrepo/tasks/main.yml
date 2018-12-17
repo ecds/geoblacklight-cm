@@ -1,0 +1,15 @@
+---
+
+- name: Determine if UCLALib repo is already set-up
+  stat:
+    path: "{{ repo_file }}"
+  register: repo_file_status
+
+- name: Add UCLALib Repo
+  template:
+    src: uclalib_repo.j2
+    dest: "{{ repo_file }}"
+    owner: root
+    group: root
+    mode: 0644
+  when: repo_file_status.stat.exists == False

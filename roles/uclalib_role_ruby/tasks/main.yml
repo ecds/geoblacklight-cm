@@ -1,0 +1,15 @@
+---
+
+- name: Pull in environment variables
+  include_vars: "{{ ansible_distribution }}.yml"
+
+- name: Install Ruby RPM
+  yum:
+    name: "ruby-{{ ruby_version }}"
+    state: present
+    disablerepo: "{{ repo_name }}"
+    enablerepo: "uclalib"
+
+- name: Install/Update Base Ruby Gems
+  command: >
+    gem update --system

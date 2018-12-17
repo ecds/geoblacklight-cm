@@ -1,0 +1,5 @@
+---
+- hosts: all
+  remote_user: root
+  roles:
+    - ansible_uclalib_role_uclalibrepo

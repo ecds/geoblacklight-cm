@@ -24,7 +24,10 @@
 #    - { role: emorylib_role_local_mysqldb }
     - { role: dce_role_rds_mysql }
 #    - { role: dce_role_end_play }
-    - { role: emorylib_role_install_ruby_scl }
+    - { role: uclalib_role_uclalibrepo }
+    - { role: uclalib_role_nodejs, nodejs_version: '8' }
+    - { role: uclalib_role_ruby, ruby_version: '2.5.1' }
+#    - { role: emorylib_role_install_ruby_scl }
 #    - { role: uclalib_role_passenger }
     - { role: uclalib_role_yarn }
     - { role: uclalib_role_redis }

@@ -10,7 +10,9 @@
 #- src: https://github.com/UCLALibrary/uclalib_role_yarn
 #- src: https://github.com/UCLALibrary/uclalib_role_fedora4
 #- src: https://github.com/UCLALibrary/uclalib_role_pip
-- src: https://github.com/UCLALibrary/uclalib_role_redis 
+#- src: https://github.com/UCLALibrary/uclalib_role_redis 
+#- src: https://github.com/UCLALibrary/uclalib_role_ruby
+#- src: https://github.com/UCLALibrary/uclalib_role_uclalibrepo
 # Testing these roles to replace local roles
 #- src: https://github.com/curationexperts/uclalib_role_samvera_capdeploy
 #  version: add-geonames-honeybadger
