@@ -1,6 +1,6 @@
-- hosts: "{{ host }}"
+- hosts: geoblacklight2.ecds.me
   user: ec2-user
-  gather_facts: no
+#  gather_facts: no
   become: yes
   vars_files:
     - roles/emorylib_role_install_ruby_scl/defaults/main.yml
@@ -14,22 +14,22 @@
     PKG_CONFIG_PATH: "{{ ruby_pkg_config_path }}"
     XDG_DATA_DIRS: "{{ ruby_xdg_data_dirs }}"
   roles:
-    - { role: dce_role_wait_for_gatherfacts }
-    - { role: dce_role_selinux_reboot }
+#    - { role: dce_role_wait_for_gatherfacts }
+#    - { role: dce_role_selinux_reboot }
 #    - { role: uclalib_role_apache }
-    - { role: uclalib_role_rhel7repos }
-    - { role: uclalib_role_epel }
-    - { role: uclalib_role_samvera_basepackages }
-    - { role: uclalib_role_pip }
+#    - { role: uclalib_role_rhel7repos }
+#    - { role: uclalib_role_epel }
+#    - { role: uclalib_role_samvera_basepackages }
+#    - { role: uclalib_role_pip }
 #    - { role: emorylib_role_local_mysqldb }
     - { role: dce_role_rds_mysql }
 #    - { role: dce_role_end_play }
-    - { role: uclalib_role_uclalibrepo }
-    - { role: uclalib_role_nodejs, nodejs_version: '8' }
-    - { role: uclalib_role_ruby, ruby_version: '2.5.1' }
+#    - { role: uclalib_role_uclalibrepo }
+#    - { role: uclalib_role_nodejs, nodejs_version: '8' }
+#    - { role: uclalib_role_ruby, ruby_version: '2.5.1' }
 #    - { role: emorylib_role_install_ruby_scl }
-    - { role: uclalib_role_passenger }
-    - { role: uclalib_role_yarn }
-    - { role: uclalib_role_redis }
-    - { role: uclalib_role_blacklight_capdeploy }
+#    - { role: uclalib_role_passenger }
+#    - { role: uclalib_role_yarn }
+#    - { role: uclalib_role_redis }
+#    - { role: uclalib_role_blacklight_capdeploy }
 #    - { role: uclalib_role_samvera_capdeploy }
