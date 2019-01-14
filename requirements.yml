@@ -1,5 +1,5 @@
 # External roles for building out the ECDS geoblacklight instance
-#- src: https://github.com/UCLALibrary/uclalib_role_blacklight_capdeploy
+- src: https://github.com/UCLALibrary/uclalib_role_blacklight_capdeploy
 #- src: https://github.com/UCLALibrary/uclalib_role_samvera_capdeploy
 #- src: https://github.com/UCLALibrary/uclalib_role_epel
 #- src: https://github.com/curationexperts/uclalib_role_rhel7repos
