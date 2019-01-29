@@ -5,6 +5,7 @@
 
 - name: Provision EC2
   ec2:
+    region: "{{ aws_region }}"
     key_name: "{{ ec2_key_name }}"
     group: "{{ ec2_security_groups }}"
     instance_type: "{{ ec2_instance_type }}"

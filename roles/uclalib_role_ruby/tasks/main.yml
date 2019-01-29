@@ -8,7 +8,6 @@
     name: "ruby-{{ ruby_version }}"
     state: present
     disablerepo: "{{ repo_name }}"
-    enablerepo: "uclalib"
 
 - name: Install/Update Base Ruby Gems
   command: >

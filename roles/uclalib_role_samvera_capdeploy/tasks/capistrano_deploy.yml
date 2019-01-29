@@ -17,12 +17,12 @@
     name: httpd
     state: restarted
 
-#- name: Create the rails app default admin set
-#  become_user: "{{ capistrano_user }}"
-#  shell: >
-#    RAILS_ENV=production bundle exec rake hyrax:default_admin_set:create
-#  args:
-#    chdir: "{{ capistrano_base }}/{{ project_name }}/current"
+- name: Create the rails app default admin set
+  become_user: "{{ capistrano_user }}"
+  shell: >
+    RAILS_ENV=production bundle exec rake hyrax:default_admin_set:create
+  args:
+    chdir: "{{ capistrano_base }}/{{ project_name }}/current"
 
 - name: Create test database for developers' box (optional)
   become_user: "{{ ansible_username }}"

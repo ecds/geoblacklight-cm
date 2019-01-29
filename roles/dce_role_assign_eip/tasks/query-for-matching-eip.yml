@@ -3,6 +3,7 @@
   ec2_eip_facts:
     filters:
       "tag:Name": "{{ ec2_fqdn }}"
+    region: "{{ aws_region }}"
   register: eip_facts
 
 - name: Set ec2 eip if found
