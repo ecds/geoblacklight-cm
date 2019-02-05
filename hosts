@@ -2,4 +2,5 @@
 geoblacklight2.ecds.me
 geo-dev.ecds.emory.edu
 ursus.ecds.me
+geo-solr.ecds.emory.edu
 #ec2_ip ansible_ssh_private_key_file=~/.ssh/library_team.pem

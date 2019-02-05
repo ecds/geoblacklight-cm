@@ -1,0 +1,18 @@
+# vars file for dce_role_provision_ec2
+# EC2 instance variables
+# project_name
+# env_name
+project_name: geoblacklight
+
+ec2_key_name: "{{ vault_ec2_key_name }}"
+ec2_security_groups: [Griendling Site Security Group]
+ec2_instance_type: t2.medium
+ec2_image: ami-6871a115
+ansible_ssh_user: ec2-user
+
+ec2_vpc_subnet_id: subnet-ba79ee80
+ec2_assign_public_ip: no #Boolean
+
+solr_cores:
+  - ident: geoblacklightcore
+    type: geoblacklight
